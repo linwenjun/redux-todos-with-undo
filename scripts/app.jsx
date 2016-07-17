@@ -1,7 +1,16 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import App from './components/App.jsx';
+import todoApp from './reducers';
+
+
+const store = createStore(todoApp);
 
 ReactDom.render(
-  <h1>Hello,world!</h1>,
+    <Provider store={store}>
+      <App />
+    </Provider>,
   document.getElementById('root')
 );
